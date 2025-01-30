@@ -1,5 +1,8 @@
 package com.example.paldeck
 
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,13 +25,20 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#AAC7FF")))
 
         val paldeckList = listOf<Paldeck>(
-            Paldeck(1,"Lambal","lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", listOf(Element.FIRE, Element.WATER), Stats( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "https://palworld.gg/_ipx/q_80&s_60x60/images/full_palicon/T_BirdDragon_icon_normal.png"),
-            Paldeck(2,"Malas","mantap", listOf(Element.FIRE, Element.WATER), Stats( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "https://palworld.gg/_ipx/q_80&s_60x60/images/full_palicon/T_BirdDragon_icon_normal.png")
+            Paldeck("Anubis","Once seen as a symbol of nobility, and an idol for those who shunned wealth and power. Yet over time, this Pal became a token of death.", listOf(Element.GROUND), Stats( 120, 100, 100, 130, 130, 4960, 100, 100, 800, 1000, 80), "https://palworld.gg/_ipx/q_80&s_130x130/images/full_palicon/T_Anubis_icon_normal.png"),
         )
 
-        paldeckAdapter = PaldeckAdapter(paldeckList)
+        paldeckAdapter = PaldeckAdapter(paldeckList, object: PaldeckAdapter.OnItemClickListener{
+            override fun onItemClick(paldeck: Paldeck) {
+                val intent = Intent(this@MainActivity, PaldeckDetailActivity::class.java)
+                intent.putExtra("paldeck", paldeck)
+                startActivity(intent)
+            }
+
+        })
         binding.rvPaldeck.apply {
             adapter = paldeckAdapter
             layoutManager = LinearLayoutManager(this@MainActivity)
