@@ -1,6 +1,7 @@
 package com.example.paldeck
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -21,6 +22,19 @@ class PaldeckAdapter(val paldeckList: List<Paldeck>): RecyclerView.Adapter<Palde
         holder.binding.apply {
             tvPaldeckName.text = paldeck.name
             tvPaldeckDescription.text = paldeck.description
+            paldeck.elements.forEach {
+                when (it) {
+                    Element.FIRE -> ivFire.visibility = View.VISIBLE
+                    Element.WATER -> ivWater.visibility = View.VISIBLE
+                    Element.GRASS -> ivGrass.visibility = View.VISIBLE
+                    Element.ELECTRIC -> ivElectric.visibility = View.VISIBLE
+                    Element.ICE -> ivIce.visibility = View.VISIBLE
+                    Element.GROUND -> ivGround.visibility = View.VISIBLE
+                    Element.DARK -> ivDark.visibility = View.VISIBLE
+                    Element.DRAGON -> ivDragon.visibility = View.VISIBLE
+                    Element.NEUTRAL -> ivNeutral.visibility = View.VISIBLE
+                }
+            }
             Glide.with(holder.itemView.context).load(paldeck.image).into(ivPaldeck)
         }
     }

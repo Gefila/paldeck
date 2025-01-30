@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        var paldeckList = listOf<Paldeck>(
-            Paldeck(1,"ya","mantap", listOf(Element.FIRE, Element.WATER), Stats( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "https://palworld.gg/_ipx/q_80&s_60x60/images/full_palicon/T_BirdDragon_icon_normal.png"),
-            Paldeck(2,"yas","mantap", listOf(Element.FIRE, Element.WATER), Stats( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "https://palworld.gg/_ipx/q_80&s_60x60/images/full_palicon/T_BirdDragon_icon_normal.png")
+        val paldeckList = listOf<Paldeck>(
+            Paldeck(1,"Lambal","lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", listOf(Element.FIRE, Element.WATER), Stats( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "https://palworld.gg/_ipx/q_80&s_60x60/images/full_palicon/T_BirdDragon_icon_normal.png"),
+            Paldeck(2,"Malas","mantap", listOf(Element.FIRE, Element.WATER), Stats( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "https://palworld.gg/_ipx/q_80&s_60x60/images/full_palicon/T_BirdDragon_icon_normal.png")
         )
 
         paldeckAdapter = PaldeckAdapter(paldeckList)

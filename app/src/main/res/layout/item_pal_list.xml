@@ -14,32 +14,105 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="4dp">
 
-            <ImageView
-                android:id="@+id/ivPaldeck"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/logo_palworld" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp">
+                <ImageView
+                    android:id="@+id/ivPaldeck"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_palworld" />
+
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingHorizontal="5dp">
 
-                <TextView
-                    android:id="@+id/tvPaldeckName"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lexend_bold"
-                    android:text="Lambal"
-                    android:textColor="@color/md_theme_primary"
-                    android:textSize="23sp" />
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/tvPaldeckName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lexend_bold"
+                        android:text="Lambal"
+                        android:textColor="@color/md_theme_primary"
+                        android:textSize="23sp" />
 
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/ivIce"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:visibility="gone"
+                            android:src="@drawable/element_ice"/>
+                        <ImageView
+                            android:id="@+id/ivFire"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:visibility="gone"
+                            android:src="@drawable/element_fire"/>
+                        <ImageView
+                            android:id="@+id/ivDark"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:visibility="gone"
+                            android:src="@drawable/element_dark"/>
+                        <ImageView
+                            android:id="@+id/ivDragon"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:visibility="gone"
+                            android:src="@drawable/element_dragon"/>
+                        <ImageView
+                            android:id="@+id/ivElectric"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:visibility="gone"
+                            android:src="@drawable/element_electric"/>
+                        <ImageView
+                            android:id="@+id/ivGrass"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:visibility="gone"
+                            android:src="@drawable/element_grass"/>
+                        <ImageView
+                            android:id="@+id/ivNeutral"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:visibility="gone"
+                            android:src="@drawable/element_neutral"/>
+                        <ImageView
+                            android:id="@+id/ivWater"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:visibility="gone"
+                            android:src="@drawable/element_water"/>
+                        <ImageView
+                            android:id="@+id/ivGround"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:visibility="gone"
+                            android:src="@drawable/element_ground"/>
+                    </LinearLayout>
+
+                </LinearLayout>
                 <TextView
                     android:id="@+id/tvPaldeckDescription"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:fontFamily="@font/lexend"
@@ -47,26 +120,6 @@
                     android:text="lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                     android:textColor="@color/md_theme_secondary"
                     android:textSize="14sp" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/element_ice">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="1dp"
-                            >
-                            <ImageView
-                                android:layout_width="23dp"
-                                android:layout_height="23dp"
-                                android:src="@drawable/element_ice"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
