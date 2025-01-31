@@ -28,7 +28,7 @@
                 app:cardCornerRadius="10dp">
 
                 <ImageView
-                    android:id="@+id/ivPaldeck"
+                    android:id="@+id/ivPaldeckDetail"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
                     android:scaleType="fitXY"

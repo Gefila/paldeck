@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.example.paldeck.databinding.ActivityPaldeckDetailBinding
 
 class PaldeckDetailActivity : AppCompatActivity() {
@@ -34,6 +35,7 @@ class PaldeckDetailActivity : AppCompatActivity() {
         if(paldeck != null){
             supportActionBar?.title = "Paldeck Detail - ${paldeck?.name}"
             binding.tvPaldeckNameDetail.text = paldeck.name
+            Glide.with(this).load(paldeck.image).into(binding.ivPaldeckDetail)
 
             for (element in paldeck.elements) {
                 when (element) {
