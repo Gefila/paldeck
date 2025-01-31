@@ -125,6 +125,7 @@
             android:fontFamily="@font/lexend"
             android:padding="5dp"
             android:minLines="2"
+            android:justificationMode="inter_word"
             android:text="@string/description"/>
 
         <TextView
