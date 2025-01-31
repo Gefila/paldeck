@@ -1,7 +1,10 @@
 package com.example.paldeck
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,7 +24,45 @@ class PaldeckDetailActivity : AppCompatActivity() {
             insets
         }
 
-        val paldeck = intent.getParcelableExtra<Paldeck>("paldeck")
-        supportActionBar?.title = "Paldeck Detail - ${paldeck?.name}"
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#6EBEFF")))
+        val paldeck = if (android.os.Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra("paldeck", Paldeck::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra("paldeck")
+        }
+        if(paldeck != null){
+            supportActionBar?.title = "Paldeck Detail - ${paldeck?.name}"
+            binding.tvPaldeckNameDetail.text = paldeck.name
+
+            for (element in paldeck.elements) {
+                when (element) {
+                    Element.FIRE -> binding.ivFire.visibility = View.VISIBLE
+                    Element.WATER -> binding.ivWater.visibility = View.VISIBLE
+                    Element.GRASS -> binding.ivGrass.visibility = View.VISIBLE
+                    Element.ELECTRIC -> binding.ivElectric.visibility = View.VISIBLE
+                    Element.ICE -> binding.ivIce.visibility = View.VISIBLE
+                    Element.GROUND -> binding.ivGround.visibility = View.VISIBLE
+                    Element.DARK -> binding.ivDark.visibility = View.VISIBLE
+                    Element.DRAGON -> binding.ivDragon.visibility = View.VISIBLE
+                    Element.NEUTRAL -> binding.ivNeutral.visibility = View.VISIBLE
+
+                }
+            }
+
+            binding.tvPaldeckDescriptionDetail.text = paldeck.description
+            binding.tvPaldeckHp.text = paldeck.stats.hp.toString()
+            binding.tvPaldeckDefense.text = paldeck.stats.defense.toString()
+            binding.tvPaldeckCraftingSpeed.text = paldeck.stats.craftingSpeed.toString()
+            binding.tvPaldeckMeleeAtt.text = paldeck.stats.meleeAttack.toString()
+            binding.tvPaldeckShoAtt.text = paldeck.stats.shotAttack.toString()
+            binding.tvPaldeckPrice.text = paldeck.stats.price.toString()
+            binding.tvPaldeckStamina.text = paldeck.stats.stamina.toString()
+            binding.tvPaldeckSupport.text = paldeck.stats.support.toString()
+            binding.tvPaldeckRunningSpeed.text = paldeck.stats.runningSpeed.toString()
+            binding.tvPaldeckSprintingSpeed.text = paldeck.stats.sprintingSpeed.toString()
+            binding.tvPaldeckSlowWalkSpeed.text = paldeck.stats.slowWalkSpeed.toString()
+        }
+
     }
 }

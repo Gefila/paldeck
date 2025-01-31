@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#AAC7FF")))
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#6EBEFF")))
 
         val paldeckList = listOf<Paldeck>(
             Paldeck("Anubis","Once seen as a symbol of nobility, and an idol for those who shunned wealth and power. Yet over time, this Pal became a token of death.", listOf(Element.GROUND), Stats( 120, 100, 100, 130, 130, 4960, 100, 100, 800, 1000, 80), "https://palworld.gg/_ipx/q_80&s_130x130/images/full_palicon/T_Anubis_icon_normal.png"),

@@ -38,7 +38,8 @@
             <LinearLayout
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
                 <ImageView
                     android:id="@+id/ivIce"
                     android:layout_width="25dp"
@@ -100,7 +101,7 @@
                 android:id="@+id/tvPaldeckNameDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="21sp"
+                android:textSize="25sp"
                 android:text="@string/pal_name"
                 android:fontFamily="@font/lexend_bold"
                 android:gravity="center"
