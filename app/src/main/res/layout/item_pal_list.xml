@@ -25,7 +25,8 @@
                     android:id="@+id/ivPaldeck"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/logo_palworld" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/kucing" />
 
             </androidx.cardview.widget.CardView>
 
@@ -44,7 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lexend_bold"
-                        android:text="Lambal"
+                        android:text="@string/palName"
                         android:textColor="@color/md_theme_primary"
                         android:textSize="24sp" />
 
@@ -118,7 +119,7 @@
                     android:fontFamily="@font/lexend"
                     android:maxLines="3"
                     android:justificationMode="inter_word"
-                    android:text="lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    android:text="@string/lorem"
                     android:textColor="@color/md_theme_secondary"
                     android:textSize="14sp" />
             </LinearLayout>

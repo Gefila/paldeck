@@ -6,12 +6,4 @@
         android:title="@string/about"
         android:icon="@drawable/baseline_account_circle_24"
         app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/action_list"
-        android:title="List"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_grid"
-        android:title="Grid"
-        app:showAsAction="never"/>
 </menu>
