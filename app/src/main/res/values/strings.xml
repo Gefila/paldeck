@@ -16,4 +16,8 @@
     <string name="description">Description</string>
     <string name="pal_name">Pal Name</string>
     <string name="about">About</string>
+    <string name="name">Gefila Zona Pranata</string>
+    <string name="email">gefilazonapranata@gmail.com</string>
+    <string name="kampus">Institut Sains dan Bisnis Atma Luhur</string>
+    <string name="share">Share</string>
 </resources>

@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,8 @@ class PaldeckDetailActivity : AppCompatActivity() {
         }
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#6EBEFF")))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val paldeck = if (android.os.Build.VERSION.SDK_INT >= 33) {
             intent.getParcelableExtra("paldeck", Paldeck::class.java)
         } else {
@@ -66,5 +69,15 @@ class PaldeckDetailActivity : AppCompatActivity() {
             binding.tvPaldeckSlowWalkSpeed.text = paldeck.stats.slowWalkSpeed.toString()
         }
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
