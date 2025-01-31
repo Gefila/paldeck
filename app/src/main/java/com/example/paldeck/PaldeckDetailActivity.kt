@@ -1,9 +1,11 @@
 package com.example.paldeck
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -15,6 +17,8 @@ import com.example.paldeck.databinding.ActivityPaldeckDetailBinding
 
 class PaldeckDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPaldeckDetailBinding
+    private var paldeck: Paldeck? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,7 +33,7 @@ class PaldeckDetailActivity : AppCompatActivity() {
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#6EBEFF")))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val paldeck = if (android.os.Build.VERSION.SDK_INT >= 33) {
+        paldeck = if (android.os.Build.VERSION.SDK_INT >= 33) {
             intent.getParcelableExtra("paldeck", Paldeck::class.java)
         } else {
             @Suppress("DEPRECATION")
@@ -37,10 +41,10 @@ class PaldeckDetailActivity : AppCompatActivity() {
         }
         if(paldeck != null){
             supportActionBar?.title = "Paldeck Detail - ${paldeck?.name}"
-            binding.tvPaldeckNameDetail.text = paldeck.name
-            Glide.with(this).load(paldeck.image).into(binding.ivPaldeckDetail)
+            binding.tvPaldeckNameDetail.text = paldeck!!.name
+            Glide.with(this).load(paldeck!!.image).into(binding.ivPaldeckDetail)
 
-            for (element in paldeck.elements) {
+            for (element in paldeck!!.elements) {
                 when (element) {
                     Element.FIRE -> binding.ivFire.visibility = View.VISIBLE
                     Element.WATER -> binding.ivWater.visibility = View.VISIBLE
@@ -55,20 +59,25 @@ class PaldeckDetailActivity : AppCompatActivity() {
                 }
             }
 
-            binding.tvPaldeckDescriptionDetail.text = paldeck.description
-            binding.tvPaldeckHp.text = paldeck.stats.hp.toString()
-            binding.tvPaldeckDefense.text = paldeck.stats.defense.toString()
-            binding.tvPaldeckCraftingSpeed.text = paldeck.stats.craftingSpeed.toString()
-            binding.tvPaldeckMeleeAtt.text = paldeck.stats.meleeAttack.toString()
-            binding.tvPaldeckShoAtt.text = paldeck.stats.shotAttack.toString()
-            binding.tvPaldeckPrice.text = paldeck.stats.price.toString()
-            binding.tvPaldeckStamina.text = paldeck.stats.stamina.toString()
-            binding.tvPaldeckSupport.text = paldeck.stats.support.toString()
-            binding.tvPaldeckRunningSpeed.text = paldeck.stats.runningSpeed.toString()
-            binding.tvPaldeckSprintingSpeed.text = paldeck.stats.sprintingSpeed.toString()
-            binding.tvPaldeckSlowWalkSpeed.text = paldeck.stats.slowWalkSpeed.toString()
+            binding.tvPaldeckDescriptionDetail.text = paldeck!!.description
+            binding.tvPaldeckHp.text = paldeck!!.stats.hp.toString()
+            binding.tvPaldeckDefense.text = paldeck!!.stats.defense.toString()
+            binding.tvPaldeckCraftingSpeed.text = paldeck!!.stats.craftingSpeed.toString()
+            binding.tvPaldeckMeleeAtt.text = paldeck!!.stats.meleeAttack.toString()
+            binding.tvPaldeckShoAtt.text = paldeck!!.stats.shotAttack.toString()
+            binding.tvPaldeckPrice.text = paldeck!!.stats.price.toString()
+            binding.tvPaldeckStamina.text = paldeck!!.stats.stamina.toString()
+            binding.tvPaldeckSupport.text = paldeck!!.stats.support.toString()
+            binding.tvPaldeckRunningSpeed.text = paldeck!!.stats.runningSpeed.toString()
+            binding.tvPaldeckSprintingSpeed.text = paldeck!!.stats.sprintingSpeed.toString()
+            binding.tvPaldeckSlowWalkSpeed.text = paldeck!!.stats.slowWalkSpeed.toString()
         }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_detail, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -77,7 +86,19 @@ class PaldeckDetailActivity : AppCompatActivity() {
                 finish()
                 return true
             }
+            R.id.action_share -> {
+                val sendIntent:Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, "${paldeck!!.name}, ${paldeck!!.description}")
+                    type = "text/plain"
+                }
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
+                return true
+            }
+
         }
         return super.onOptionsItemSelected(item)
     }
+
 }
