@@ -22,6 +22,6 @@ class PaldeckDetailActivity : AppCompatActivity() {
         }
 
         val paldeck = intent.getParcelableExtra<Paldeck>("paldeck")
-        supportActionBar?.title = paldeck?.name
+        supportActionBar?.title = "Paldeck Detail - ${paldeck?.name}"
     }
 }

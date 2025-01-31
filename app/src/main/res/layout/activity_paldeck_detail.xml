@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,4 +7,331 @@
     android:layout_height="match_parent"
     tools:context=".PaldeckDetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/ivPaldeck"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/kucing" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/ivIce"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/element_ice"/>
+                <ImageView
+                    android:id="@+id/ivFire"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/element_fire"/>
+                <ImageView
+                    android:id="@+id/ivDark"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/element_dark"/>
+                <ImageView
+                    android:id="@+id/ivDragon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/element_dragon"/>
+                <ImageView
+                    android:id="@+id/ivElectric"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/element_electric"/>
+                <ImageView
+                    android:id="@+id/ivGrass"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/element_grass"/>
+                <ImageView
+                    android:id="@+id/ivNeutral"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/element_neutral"/>
+                <ImageView
+                    android:id="@+id/ivWater"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/element_water"/>
+                <ImageView
+                    android:id="@+id/ivGround"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/element_ground"/>
+            </LinearLayout>
+
+            <TextView
+                android:textColor="@color/md_theme_primary"
+                android:id="@+id/tvPaldeckNameDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="21sp"
+                android:text="@string/pal_name"
+                android:fontFamily="@font/lexend_bold"
+                android:gravity="center"
+                />
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/description"
+            android:fontFamily="@font/lexend_bold"
+            android:layout_marginTop="10dp" />
+        <TextView
+            android:id="@+id/tvPaldeckDescriptionDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend"
+            android:padding="5dp"
+            android:minLines="2"
+            android:text="@string/description"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/stats"
+            android:textSize="20sp"
+            android:fontFamily="@font/lexend_bold"
+            android:layout_marginTop="5dp" />
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow>
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/hp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckHp"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow android:background="@color/row_color">
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/defense"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckDefense"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/crafting_speed"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckCraftingSpeed"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow android:background="@color/row_color">
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/melee_attack"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckMeleeAtt"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/shot_attack"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckShoAtt"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow android:background="@color/row_color">
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/price"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckPrice"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/stamina"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckStamina"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow android:background="@color/row_color">
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/support"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckSupport"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow >
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/running_speed"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckRunningSpeed"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow android:background="@color/row_color">
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/sprinting_speed"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckSprintingSpeed"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:fontFamily="@font/lexend_medium"
+                    android:padding="10dp"
+                    android:text="@string/slow_walk_speed"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvPaldeckSlowWalkSpeed"
+                    android:fontFamily="@font/lexend_medium"
+                    android:gravity="end"
+                    android:padding="10dp"
+                    android:text="0"
+                    android:textSize="16sp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+
+
+
+
+
+</ScrollView>
